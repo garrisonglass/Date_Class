@@ -1,3 +1,5 @@
+// Date_Class.cpp : This file contains the declreations of the Date class
+
 #ifndef DATE_H
 #define DATE_H
 
