@@ -51,3 +51,23 @@ bool Date::isLeapYear(int year) const
 		return false;
 }
 
+int Date::lastDay() const
+{
+	return lastDay(month, year);
+}
+
+int Date::lastDay(int m, int y) const
+{
+	if (m == 4 || m == 6 || m == 9 || m == 11)
+		return 30;
+	else if (m==2)
+	{
+		if (isLeapYear(y))
+			return 29;
+		else
+			return 28;
+	}
+	else
+		return 31;
+}
+
