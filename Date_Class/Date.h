@@ -10,6 +10,8 @@ class Date
 		int day;
 		int month;
 		int year;
+
+		bool isValidDate(int m, int d, int y) const;
 	public:
 		//Constructor
 		Date(int m = 1, int d = 1, int y = 1900);
