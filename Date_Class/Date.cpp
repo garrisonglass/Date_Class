@@ -71,3 +71,42 @@ int Date::lastDay(int m, int y) const
 		return 31;
 }
 
+bool Date::isValidDate(int m, int d, int y) const
+{
+	if (y < 1900 || y>2100)
+		return  false;
+	if (m < 1 || m > 12)
+		return false;
+	int maxDay = lastDay(m, y);
+	if (d < 1 || d > maxDay)
+	    return false;
+}
+
+string Date::toNumeric() const
+{
+	ostringstream print;
+	print << month << "/" << day << "/" << year;
+	return print.str();
+}
+string Date::toLong() const
+{
+	static const string month_by_Name[] =
+	{ 
+		"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" 
+	};
+	ostringstream out;
+	out << month_by_Name[month - 1] << " " << day << ", " << year;
+	return out.str();
+}
+
+string Date::toEuro() const
+{
+	static const string month_by_Name[] =
+	{
+		"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+	};
+	ostringstream print;
+	print << day << "/" << month << "/" << year;
+	return print.str();
+}
+
