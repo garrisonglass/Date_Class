@@ -38,3 +38,16 @@ void Date::setDate(int m, int d, int y)
 	}
 }
 
+bool Date::isLeapYear() const
+{
+	return isLeapYear(year);
+}
+
+bool Date::isLeapYear(int year) const
+{
+	if ((year % 4 == 0 && year % 100 !=0) || (year % 400 == 0))
+		return true;
+	else
+		return false;
+}
+
