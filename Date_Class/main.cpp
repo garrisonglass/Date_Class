@@ -40,9 +40,16 @@ int main()
 	cout << d7.isLeapYear(1900) << endl;//false
 	cout << d7.isLeapYear(2000) << endl;//true
 
-	cout << "\n=== Last Day Tests ===\n";
+	cout << "\nLast Day Tests\n";
 	Date d8(2, 10, 2024);
-	cout << d8.lastDay() << endl;       //29
+	cout << d8.lastDay()        << endl;       //29
 	cout << d8.lastDay(2, 2025) << endl;//28
 	cout << d8.lastDay(6, 2026) << endl;//30
+
+	cout << "\nFormatting Tests\n";
+	cout << d1.toNumeric()      << endl;
+	cout << d1.toLong()         << endl;
+	cout << d1.toEuro()         << endl;
+
+	return 0;
 }
