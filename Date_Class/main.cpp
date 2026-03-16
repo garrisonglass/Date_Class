@@ -42,7 +42,7 @@ int main()
 
 	cout << "\nLast Day Tests\n";
 	Date d8(2, 10, 2024);
-	cout << d8.lastDay()        << endl;       //29
+	cout << d8.lastDay()        << endl;//29
 	cout << d8.lastDay(2, 2025) << endl;//28
 	cout << d8.lastDay(6, 2026) << endl;//30
 
