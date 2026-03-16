@@ -24,8 +24,25 @@ int main()
 	Date    d5(0, 0, 0);     //Nothing is valid 
 	cout << d5.toNumeric()  << endl;
 
-	cout << "\n=== setDate() Tests ===\n";
+	cout << "\nsetDate() Tests/'\n";
 	Date    d6;
 	d6.setDate(6, 31, 2026); //invalid
-	cout << d6.toNumeric() << endl;
+	cout << d6.toNumeric()  << endl;
+
+	d6.setDate(4, 30, 2021); //valid
+	cout << d6.toNumeric()  << endl;
+
+	cout << boolalpha;
+
+	cout << "\nLeap Year Tests\n";
+	Date d7(1, 1, 2024);
+	cout << d7.isLeapYear()     << endl;//object's year
+	cout << d7.isLeapYear(1900) << endl;//false
+	cout << d7.isLeapYear(2000) << endl;//true
+
+	cout << "\n=== Last Day Tests ===\n";
+	Date d8(2, 10, 2024);
+	cout << d8.lastDay() << endl;       //29
+	cout << d8.lastDay(2, 2025) << endl;//28
+	cout << d8.lastDay(6, 2026) << endl;//30
 }
