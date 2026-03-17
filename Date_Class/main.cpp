@@ -24,7 +24,7 @@ int main()
 	Date    d5(0, 0, 0);     //Nothing is valid 
 	cout << d5.toNumeric()  << endl;
 
-	cout << "\nsetDate() Tests/'\n";
+	cout << "\nsetDate() Tests\n";
 	Date    d6;
 	d6.setDate(6, 31, 2026); //invalid
 	cout << d6.toNumeric()  << endl;
