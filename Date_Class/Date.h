@@ -5,7 +5,12 @@
 
 #include <string>
 using namespace std;
-
+/*
+Date class
+Stores a valid calendar date and provides utilities for
+validation, leap-year checks, last-day calculations, and
+multiple output formats.
+*/
 class Date
 {
 	private:
@@ -13,29 +18,61 @@ class Date
 		int month;
 		int year;
 
+/*
+Helper: Validates a full date (month/day/year).
+Ensures month is 1–12, year is within allowed range,
+and day does not exceed the last valid day of the month.
+*/
 		bool isValidDate(int m, int d, int y) const;
-	public:
-		//Constructor
+	
+public:
+
+/*
+Constructor
+Initializes the object to a valid date. If the provided
+values are invalid, defaults to 1/1/1900.
+*/
 		Date(int m = 1, int d = 1, int y = 1900);
-		//Mutator
+		
+/*
+Mutator
+Sets the entire date at once. Falls back to default date
+if any component is invalid.
+*/
 		void setDate(int m, int d, int y);
 
-		//Accessor
+/*
+Accessors
+Return individual components of the stored date.
+*/
 		int getmonth() const { return month;}
 		int getday()   const { return day;  }
 		int getyear()  const { return year; }
 
-		//Leap year
+/*
+Leap-year checks
+isLeapYear() uses the stored year.
+isLeapYear(int) checks any given year.
+*/
 		bool isLeapYear() const;
 		bool isLeapYear(int year) const;
 
-		//Last day of month
+/*
+Last-day calculations
+lastDay() uses stored month/year.
+lastDay(int,int) checks any month/year.
+*/
 		int lastDay() const;
 		int lastDay(int month, int year) const;
 
-		string toNumeric() const;
-		string toLong()    const;
-		string toEuro()    const;
+/*
+Formatting functions
+Return the stored date in different string formats.
+*/
+		string toNumeric() const;//MM/DD/YYYY
+		string toLong()    const;//MonthName DD, YYYY
+		string toEuro()    const;//DD/MM/YYYY
 };
+
 #endif
 
