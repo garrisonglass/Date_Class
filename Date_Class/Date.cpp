@@ -1,4 +1,4 @@
-// Date_Class.cpp : This file contains the implementation of the Date class
+//Date_Class.cpp : This file contains the implementation of the Date class
 #include "Date.h"
 #include <sstream>
 #include <iostream>
@@ -6,6 +6,10 @@
 
 using namespace std;
 
+/*
+Constructor
+Stores a valid date or defaults to 1/1/1900 if invalid.
+*/
 Date::Date(int m, int d, int y)
 {
 	if (isValidDate(m, d, y))
@@ -22,6 +26,10 @@ Date::Date(int m, int d, int y)
 	}
 }
 
+/*
+setDate
+Updates the stored date. If invalid, resets to default date.
+*/
 void Date::setDate(int m, int d, int y)
 {
 	if (isValidDate(m, d, y))
@@ -38,11 +46,22 @@ void Date::setDate(int m, int d, int y)
 	}
 }
 
+/*
+isLeapYear (stored year)
+Delegates to the overloaded version.
+*/
 bool Date::isLeapYear() const
 {
 	return isLeapYear(year);
 }
 
+/*
+isLeapYear (given year)
+Implements the Gregorian leap-year rules:
+- divisible by 4 - leap year
+- except divisible by 100 - not leap
+- except divisible by 400 - leap
+*/
 bool Date::isLeapYear(int year) const
 {
 	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
@@ -55,11 +74,20 @@ bool Date::isLeapYear(int year) const
 	}
 }
 
+/*
+lastDay (stored month/year)
+Returns the last valid day for the stored month/year.
+*/
 int Date::lastDay() const
 {
 	return lastDay(month, year);
 }
 
+/*
+lastDay (given month/year)
+Handles 30-day months, 31-day months, and February with
+leap-year logic.
+*/
 int Date::lastDay(int m, int y) const
 {
 	if (m == 4 || m == 6 || m == 9 || m == 11)
@@ -83,6 +111,11 @@ int Date::lastDay(int m, int y) const
 	}
 }
 
+/*
+isValidDate
+Ensures year is within allowed range, month is 1–12, and
+day does not exceed the last valid day for that month/year.
+*/
 bool Date::isValidDate(int m, int d, int y) const
 {
 	if (y < 1900 || y>2100)
@@ -100,12 +133,20 @@ bool Date::isValidDate(int m, int d, int y) const
 	}
 }
 
+/*
+toNumeric
+Returns date in MM/DD/YYYY format.
+*/
 string Date::toNumeric() const
 {
 	ostringstream print;
 	print << month << "/" << day << "/" << year;
 	return print.str();
 }
+/*
+toLong
+Returns date in "MonthName DD, YYYY" format.
+*/
 string Date::toLong() const
 {
 	static const string month_by_Name[] =
@@ -117,6 +158,10 @@ string Date::toLong() const
 	return out.str();
 }
 
+/*
+toEuro
+Returns date in DD/MM/YYYY format.
+*/
 string Date::toEuro() const
 {
 	static const string month_by_Name[] =
